@@ -11,19 +11,32 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
+
 
   <meta name="referrer" content="origin-when-cross-origin">
 
   <link rel="stylesheet" media="screen" href="assets/v2/styles/main.css">
+  <script>
+    const toggleBurger=() => {
+      const nav=document.querySelector(".nav-v2-main")
+      nav.classList.toggle("pbg-nav")
+    }
+
+    const hideBurger=() => {
+      const nav=document.querySelector(".nav-v2-main")
+      nav.classList.remove("pbg-nav")
+    }
+  </script>
 </head>
 
 <body id="page" class="logged-out not-pro not-player not-self not-team not-on-team no-hiring nav-v2-theme-cream">
   <div class="nav-v2">
     <div class="nav-v2__dark-overlay"></div>
     <div class="nav-v2__wrapper">
-      <button class="nav-v2-burger">
+      <button class="nav-v2-burger" onClick="toggleBurger()">
         <span></span>
         <span></span>
         <span></span>
@@ -31,7 +44,7 @@
 
       <nav class="nav-v2-main" role="navigation">
         <div class="nav-v2-main__wrapper">
-          <ul ul="" class="nav-v2-main__list">
+          <ul ul="" class="nav-v2-main__list" onClick="hideBurger()">
             <li class="nav-v2-main__item">
               <a href="#whoweare">Who Are We</a>
             </li>
@@ -68,7 +81,7 @@
       <div class="hero-marquee" style="--card-count: 24;">
         <div class="hero-marquee__track">
           <div class="hero-marquee__grid">
-            <div class="hero-marquee-item lazyloaded" data-lazy-parent="" style="--reveal-delay: 0.7799571792040015s;">
+            <div class="hero-marquee-item lazyloaded" style="--reveal-delay: 0.7799571792040015s;">
               <div div="" class="hero-marquee-item__info">
                 <ul class="hero-marquee-item__tags">
                   <li class="hero-marquee-item__tag">Upcoming</li>
@@ -82,7 +95,7 @@
                   sercset="assets/v2/games/gm.png 320w, assets/v2/games/gm.png 400w" sizes="273px">
               </div>
             </div>
-            <div class="hero-marquee-item lazyloaded" data-lazy-parent="" style="--reveal-delay: 0.5998635426066039s;">
+            <div class="hero-marquee-item lazyloaded" style="--reveal-delay: 0.5998635426066039s;">
               <div div="" class="hero-marquee-item__info">
                 <ul class="hero-marquee-item__tags">
                   <li class="hero-marquee-item__tag">Table</li>
@@ -96,7 +109,7 @@
                   sercset="assets/v2/games/cg.png 320w, assets/v2/games/cg.png 400w" sizes="273px">
               </div>
             </div>
-            <div class="hero-marquee-item lazyloaded" data-lazy-parent="" style="--reveal-delay: 0.9660964472676581s;">
+            <div class="hero-marquee-item lazyloaded" style="--reveal-delay: 0.9660964472676581s;">
               <div div="" class="hero-marquee-item__info">
                 <ul class="hero-marquee-item__tags">
                   <li class="hero-marquee-item__tag">Slots</li>
@@ -110,7 +123,7 @@
                   sercset="assets/v2/games/dvp.png 320w, assets/v2/games/dvp.png 400w" sizes="273px">
               </div>
             </div>
-            <div class="hero-marquee-item lazyloaded" data-lazy-parent="" style="--reveal-delay: 0.4261125729017957s;">
+            <div class="hero-marquee-item lazyloaded" style="--reveal-delay: 0.4261125729017957s;">
               <div div="" class="hero-marquee-item__info">
                 <ul class="hero-marquee-item__tags">
                   <li class="hero-marquee-item__tag">Slots</li>
@@ -124,7 +137,7 @@
                   sercset="assets/v2/games/ff.png 320w, assets/v2/games/ff.png 400w" sizes="273px">
               </div>
             </div>
-            <div class="hero-marquee-item lazyloaded" data-lazy-parent="" style="--reveal-delay: 0.7714730489771086s;">
+            <div class="hero-marquee-item lazyloaded" style="--reveal-delay: 0.7714730489771086s;">
               <div div="" class="hero-marquee-item__info">
                 <ul class="hero-marquee-item__tags">
                   <li class="hero-marquee-item__tag">Slots</li>
@@ -138,7 +151,7 @@
                   sercset="assets/v2/games/ss.png 320w, assets/v2/games/ss.png 400w" sizes="273px">
               </div>
             </div>
-            <div class="hero-marquee-item lazyloaded" data-lazy-parent="" style="--reveal-delay: 0.3521027031545736s;">
+            <div class="hero-marquee-item lazyloaded" style="--reveal-delay: 0.3521027031545736s;">
               <div div="" class="hero-marquee-item__info">
                 <ul class="hero-marquee-item__tags">
                   <li class="hero-marquee-item__tag">Upcoming</li>
@@ -295,7 +308,7 @@
           <div class="footer-cta__copy">
             <a name="workwithus">
               <br />
-              Are you a passionate about games?<br /><br />
+              Are you passionate about games?<br /><br />
               <a href="mailto:jobs@pinoybetgames.com" class="btn2 btn2--secondary-alt btn2--large">Join Us</a>
           </div>
         </div>

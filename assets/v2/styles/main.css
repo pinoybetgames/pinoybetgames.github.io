@@ -897,7 +897,8 @@ body {
   -ms-flex-align: center;
   align-items: center;
   color: #0d0c22;
-  line-height: 1
+  line-height: 1;
+  padding-left: 15px;
 }
 
 .nav-v2-main__item:first-child {
@@ -1084,6 +1085,11 @@ body {
 
 .nav-v2-burger>*:nth-child(3) {
   width: 67%
+}
+
+.pbg-nav {
+  visibility: visible;
+  opacity: 1;
 }
 
 :root {
@@ -1458,7 +1464,7 @@ body {
 }
 
 .home-type-heading {
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Plus Jakarta Sans", Georgia, serif;
   font-size: 40px;
   font-weight: 400;
   letter-spacing: -0.5px;
@@ -1508,7 +1514,7 @@ body {
   border-radius: 9999999px;
   background-color: var(--home-badge-bg, #ffda79);
   color: var(--home-badge-color, #3d3d4e);
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Plus Jakarta Sans", Georgia, serif;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.2px;
@@ -1591,11 +1597,11 @@ body {
 .hero__heading {
   max-width: 340px;
   margin: 40px auto 24px;
-  font-family: "Source Serif 4", Georgia, serif;
+  font-family: "Kalam", Georgia, serif;
   font-size: 48px;
   font-weight: 400;
   letter-spacing: -0.5px;
-  line-height: 56px
+  text-transform: uppercase;
 }
 
 @media (min-width: 500px) {
