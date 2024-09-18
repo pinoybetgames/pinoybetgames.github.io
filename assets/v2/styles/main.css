@@ -1627,7 +1627,7 @@ body {
   background-repeat: no-repeat;
   /*background-position: 50% 50%;*/
   background-size: 100%;
-  background-image: url(../images/heroshot.png);
+  background-image: url(../images/heroshot.webp);
 }
 
 @media (min-width: 500px) {
