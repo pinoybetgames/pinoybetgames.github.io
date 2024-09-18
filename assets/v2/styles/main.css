@@ -260,7 +260,7 @@ body {
 }
 
 :root {
-  --btn-bg-color: #0d0c22;
+  --btn-bg-color: #4c28c0;
   --btn-bg-color-hover: #565564;
   --btn-text-color: #fff;
   --btn-text-color-hover: #fff;
@@ -301,6 +301,7 @@ a.btn2 {
   border: var(--btn-border-width, 1.5px) solid var(--btn-border-color, var(--btn-bg-color));
   border-radius: var(--btn-border-radius, 9999999px);
   background-color: var(--btn-bg-color);
+  /*background-color: #4c28c0;*/
   color: var(--btn-text-color);
   font-family: inherit;
   font-size: var(--btn-font-size);
@@ -359,6 +360,15 @@ a.btn2 {
     background-color: var(--btn-bg-color-hover, var(--btn-bg-color));
     color: var(--btn-text-color-hover, var(--btn-text-color))
   }
+}
+
+.btn2--xxlarge {
+  position: relative;
+  bottom: 30vh;
+  left: 25vw;
+  font-size: 1.8rem !important;
+  padding: 2rem 6rem !important;
+  box-shadow: rgb(29 135 203 / 25%) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgb(13 52 169 / 12%) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgb(77 34 150 / 9%) 0px -3px 5px;
 }
 
 .btn2--large {
@@ -792,8 +802,11 @@ body {
   padding: 0 var(--nav-v2-gutter);
   -webkit-transition: background-color 0.25s ease-out;
   transition: background-color 0.25s ease-out;
-  background-color: var(--nav-v2-bg-color, #fff);
-  gap: 20px
+  /*background-color: var(--nav-v2-bg-color, #fff);*/
+  gap: 20px;
+
+  background-color: #160b1e;
+  color: #fff;
 }
 
 @media (min-width: 950px) {
@@ -867,7 +880,7 @@ body {
     padding: 32px;
     overflow-y: scroll;
     border-top: 1px solid #e7e7e9;
-    background-color: #fff;
+    background-color: #160b1e;
     -webkit-overflow-scrolling: touch
   }
 }
@@ -896,7 +909,8 @@ body {
   position: relative;
   -ms-flex-align: center;
   align-items: center;
-  color: #0d0c22;
+  /*color: #0d0c22;*/
+  color: #fffffffa;
   line-height: 1;
   padding-left: 15px;
 }
@@ -1080,7 +1094,8 @@ body {
   transition: 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   border-radius: 9999999px;
   opacity: 1;
-  background-color: #0d0c22
+  background-color: #fff;
+  /*background-color: #0d0c22*/
 }
 
 .nav-v2-burger>*:nth-child(3) {
@@ -1578,12 +1593,11 @@ body {
 
 .hero {
   position: relative;
-  padding-top: 80px;
   background-color: #f8f7f4;
   text-align: center
 }
 
-.hero:before {
+/*.hero:before {
   content: '';
   position: absolute;
   z-index: 1;
@@ -1592,7 +1606,7 @@ body {
   width: 100%;
   height: 180px;
   background-color: #fff
-}
+}*/
 
 .hero__heading {
   max-width: 340px;
@@ -1602,6 +1616,18 @@ body {
   font-weight: 600;
   letter-spacing: -0.5px;
   text-transform: uppercase;
+  text-shadow: 5px 5px #8acc1a;
+}
+
+.hero-image {
+  margin: 0 0 auto;
+  width: 100vw;
+  height: calc(100vw* 0.5);
+  position: relative;
+  background-repeat: no-repeat;
+  /*background-position: 50% 50%;*/
+  background-size: 100%;
+  background-image: url(../images/heroshot.png);
 }
 
 @media (min-width: 500px) {
