@@ -1835,3 +1835,21 @@ body {
   padding: 8px;
   align-self: center;
 }
+
+@keyframes slide-in {
+  100% {
+    transform: translateY(0%)
+  }
+}
+
+
+.browse_all {
+  display: block;
+  animation-name: slide-in;
+  animation-duration: 1s;
+}
+
+.browse_hidden {
+  display: none;
+  transform: translateY(-100%)
+}
