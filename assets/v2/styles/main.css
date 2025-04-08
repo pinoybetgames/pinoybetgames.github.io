@@ -136,6 +136,54 @@ a:active {
   color: #0d0c22
 }
 
+
+.rails {
+  background-color: red;
+  margin-top: 10vh;
+
+}
+
+.direction-to-left {
+  animation: scroll 30s linear infinite;
+  animation-direction: reverse;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-50vw);
+    -webkit-transform: translateX(-50vw);
+  }
+
+  100% {
+    transform: translateX(50vw);
+    -webkit-transform: translateX(50vw);
+  }
+}
+
+.railrow {
+  display: flex;
+  position: relative;
+  width: 220vw;
+  height: 40vh;
+}
+
+.railrow-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 11vh;
+  width: 16.5vw;
+  padding-top: 20px;
+  margin: 20px;
+}
+
+.railrow img {
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-right: 20px;
+}
+
+
 #content {
   position: relative;
   margin: 0 auto;
