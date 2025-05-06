@@ -1901,3 +1901,49 @@ body {
   display: none;
   transform: translateY(-100%)
 }
+
+.game-tiles {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 420px;
+  top: calc(50% - 10vw);
+}
+
+.tiles-wrapper {
+  width: 270px;
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+}
+
+.tiles-wrapper::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.tiles-wrapper .tile {
+  display: grid;
+  place-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.tiles-wrapper .tile img {
+  width: 250px;
+}
+
+.tiles-wrapper>* {
+  border-radius: 10px;
+}
+
+.tiles-wrapper>* img {
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}

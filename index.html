@@ -54,6 +54,7 @@
   <meta name="referrer" content="origin-when-cross-origin">
 
   <link rel="stylesheet" media="screen" href="assets/v2/styles/main.css">
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y8ED2CKTFD"></script>
   <script>
@@ -290,29 +291,73 @@
 
   <main class="home-page">
     <section class="hero">
-      <!--<div class="home-container">
-        <h1 class="hero__heading">Games for Every Juan</h1>
-        <div class="home-type-body-large font-weight-500">Made to Be Played. Designed for endless enjoyment.</div>
-        <a class="margin-t-32 btn2 btn2--large" href="#ourgames">Play Now</a>
-      </div>-->
       <div class="banner">
         <figure class="hero-image"></figure>
-        <!--<a class="margin-t-32 btn2--xxlarge btn2 " href="#ourgames">Play Now</a>-->
       </div>
 
-      <section class="hero-marquee">
-        <div class="marquee">
-          <div class="marquee__group">
+      <section class="game-tiles">
+
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Yamashita's Treasure" width="250" height="380" src="assets/v2/games/yt.png"
+              sercset="assets/v2/games/yt.png 320w, assets/v2/games/yt.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Pop Monster: Cutesy Clash" width="250" height="380" src="assets/v2/games/pm.png"
+              sercset="assets/v2/games/pm.png 320w, assets/v2/games/pm.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Fruit Fiesta" width="250" height="380" src="assets/v2/games/ff.png"
+              sercset="assets/v2/games/ff.png 320w, assets/v2/games/ff.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Sari Sari Store" width="250" height="380" src="assets/v2/games/ss.png"
+              sercset="assets/v2/games/ss.png 320w, assets/v2/games/ss.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Goodluck Money" width="250" height="380" src="assets/v2/games/gm.webp"
+              sercset="assets/v2/games/gm.png 320w, assets/v2/games/gm.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Boracay Beauties" width="250" height="380" src="assets/v2/games/bb.png"
+              sercset="assets/v2/games/bb.png 320w, assets/v2/games/bb.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Pixie Magic: Color Game" width="250" height="380" src="assets/v2/games/cg.png"
+              sercset="assets/v2/games/cg.png 320w, assets/v2/games/cg.png 400w" sizes="273px">
+          </div>
+        </div>
+        <div class="tiles-wrapper">
+          <div class="tile">
+            <img alt="Dragon vs Phoenix" width="250" height="380" src="assets/v2/games/dvp.png"
+              sercset="assets/v2/games/dvp.png 320w, assets/v2/games/dvp.png 400w" sizes="273px">
+          </div>
+        </div>
+      </section>
+
+      <!--<section class="hero-marquee">
+        <div xclass="marquee">
+          <div xclass="marquee__group" class="tiles-wrapper">
             <div>
               <img alt="Pixie Magic: Color Game" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/cg.png"
+                 src="assets/v2/games/cg.png"
                 sercset="assets/v2/games/cg.png 320w, assets/v2/games/cg.png 400w" sizes="273px">
             </div>
             <div>
               <img alt="Dragon vs Phoenix" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/dvp.png"
+                 src="assets/v2/games/dvp.png"
                 sercset="assets/v2/games/dvp.png 320w, assets/v2/games/dvp.png 400w" sizes="273px">
             </div>
             <div>
@@ -320,8 +365,7 @@
                 <div class="tag">Live</div>
               </div>
               <img alt="Yamashita's Treasure" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/yt.png"
+                 src="assets/v2/games/yt.png"
                 sercset="assets/v2/games/yt.png 320w, assets/v2/games/yt.png 400w" sizes="273px">
             </div>
             <div>
@@ -329,19 +373,17 @@
                 <div class="tag">Live</div>
               </div>
               <img alt="Pop Monster: Cutesy Clash" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/pm.png"
+                 src="assets/v2/games/pm.png"
                 sercset="assets/v2/games/pm.png 320w, assets/v2/games/pm.png 400w" sizes="273px">
             </div>
             <div>
-              <img alt="Fruit Fiesta" width="250" height="380" class="lazypreload lazyautosizes ls-is-cached lazyloaded"
-                data-sizes="auto" data-aspectratio="0.8029411764705883" src="assets/v2/games/ff.png"
-                sercset="assets/v2/games/ff.png 320w, assets/v2/games/ff.png 400w" sizes="273px">
+              <img alt="Fruit Fiesta" width="250" height="380" 
+                src="assets/v2/games/ff.png" sercset="assets/v2/games/ff.png 320w, assets/v2/games/ff.png 400w"
+                sizes="273px">
             </div>
             <div>
               <img alt="Sari Sari Store" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/ss.png"
+                 src="assets/v2/games/ss.png"
                 sercset="assets/v2/games/ss.png 320w, assets/v2/games/ss.png 400w" sizes="273px">
             </div>
             <div>
@@ -349,8 +391,7 @@
                 <div class="tag">Live</div>
               </div>
               <img alt="Goodluck Money" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/gm.webp"
+                 src="assets/v2/games/gm.webp"
                 sercset="assets/v2/games/gm.png 320w, assets/v2/games/gm.png 400w" sizes="273px">
             </div>
             <div>
@@ -358,57 +399,12 @@
                 <div class="tag tag-reverse">Live</div>
               </div>
               <img alt="Boracay Beauties" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/bb.png"
-                sercset="assets/v2/games/bb.png 320w, assets/v2/games/bb.png 400w" sizes="273px">
-            </div>
-          </div>
-
-          <div aria-hidden="true" class="marquee__group">
-            <div>
-              <img alt="Pixie Magic: Color Game" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/cg.png"
-                sercset="assets/v2/games/cg.png 320w, assets/v2/games/cg.png 400w" sizes="273px">
-            </div>
-            <div>
-              <img alt="Dragon vs Phoenix" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/dvp.png"
-                sercset="assets/v2/games/dvp.png 320w, assets/v2/games/dvp.png 400w" sizes="273px">
-            </div>
-            <div>
-              <img alt="Fruit Fiesta" width="250" height="380" class="lazypreload lazyautosizes ls-is-cached lazyloaded"
-                data-sizes="auto" data-aspectratio="0.8029411764705883" src="assets/v2/games/ff.png"
-                sercset="assets/v2/games/ff.png 320w, assets/v2/games/ff.png 400w" sizes="273px">
-            </div>
-            <div>
-              <img alt="Sari Sari Store" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/ss.png"
-                sercset="assets/v2/games/ss.png 320w, assets/v2/games/ss.png 400w" sizes="273px">
-            </div>
-            <div>
-              <div class="info">
-                <div class="tag">Live</div>
-              </div>
-              <img alt="Goodluck Money" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/gm.webp"
-                sercset="assets/v2/games/gm.png 320w, assets/v2/games/gm.png 400w" sizes="273px">
-            </div>
-            <div>
-              <div class="info">
-                <div class="tag tag-reverse">Live</div>
-              </div>
-              <img alt="Boracay Beauties" width="250" height="380"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" data-sizes="auto"
-                data-aspectratio="0.8029411764705883" src="assets/v2/games/bb.png"
+                 src="assets/v2/games/bb.png"
                 sercset="assets/v2/games/bb.png 320w, assets/v2/games/bb.png 400w" sizes="273px">
             </div>
           </div>
         </div>
-      </section>
+      </section>-->
     </section>
 
     <div class="home-feed">
@@ -419,8 +415,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Yamashita's Treasure" width="273" height="340"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" src="assets/v2/games/yt_cover.png"
+              <img alt="Yamashita's Treasure" width="273" height="340" src="assets/v2/games/yt_cover.png"
                 sercset="assets/v2/games/yt_cover.png 320w, assets/v2/games/yt_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -455,8 +450,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Pop Monster: Cutesy Clash" width="273" height="340"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" src="assets/v2/games/pm_cover.png"
+              <img alt="Pop Monster: Cutesy Clash" width="273" height="340" src="assets/v2/games/pm_cover.png"
                 sercset="assets/v2/games/pm_cover.png 320w, assets/v2/games/pm_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -491,8 +485,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Dragon vs Phoenix" width="273" height="340"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" src="assets/v2/games/dvp_cover.png"
+              <img alt="Dragon vs Phoenix" width="273" height="340" src="assets/v2/games/dvp_cover.png"
                 sercset="assets/v2/games/dvp_cover.png 320w, assets/v2/games/dvp_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -526,8 +519,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Pixie Magic: Color Game" width="273" height="340"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" src="assets/v2/games/cg_cover.png"
+              <img alt="Pixie Magic: Color Game" width="273" height="340" src="assets/v2/games/cg_cover.png"
                 sercset="assets/v2/games/cg_cover.png 320w, assets/v2/games/cg_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -560,8 +552,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base ">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Fruit Fiesta" width="273" height="340" class="lazypreload lazyautosizes ls-is-cached lazyloaded"
-                src="assets/v2/games/bb_cover.jpeg"
+              <img alt="Fruit Fiesta" width="273" height="340" src="assets/v2/games/bb_cover.jpeg"
                 sercset="assets/v2/games/ff_cover.png 320w, assets/v2/games/gm_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -596,8 +587,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base ">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Sari Sari Store" width="273" height="340"
-                class="lazypreload lazyautosizes ls-is-cached lazyloaded" src="assets/v2/games/ss_cover.png"
+              <img alt="Sari Sari Store" width="273" height="340" src="assets/v2/games/ss_cover.png"
                 sercset="assets/v2/games/ss_cover.png 320w, assets/v2/games/ss_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -631,8 +621,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base ">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Fruit Fiesta" width="273" height="340" class="lazypreload lazyautosizes ls-is-cached lazyloaded"
-                src="assets/v2/games/gm_cover.png"
+              <img alt="Fruit Fiesta" width="273" height="340" src="assets/v2/games/gm_cover.png"
                 sercset="assets/v2/games/ff_cover.png 320w, assets/v2/games/gm_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -667,8 +656,7 @@
         <li class="shot-thumbnail js-thumbnail shot-thumbnail-container">
           <div class="js-thumbnail-base shot-thumbnail-base ">
             <figure class="js-thumbnail-placeholder shot-thumbnail-placeholder">
-              <img alt="Fruit Fiesta" width="273" height="340" class="lazypreload lazyautosizes ls-is-cached lazyloaded"
-                src="assets/v2/games/ff_cover.png"
+              <img alt="Fruit Fiesta" width="273" height="340" src="assets/v2/games/ff_cover.png"
                 sercset="assets/v2/games/ff_cover.png 320w, assets/v2/games/ff_cover.png 400w" sizes="273px">
             </figure>
             <a class="shot-thumbnail-link pbg-link js-shot-link"
@@ -791,6 +779,30 @@
       document.querySelector(".browse_all_btn").innerHTML='Browse more games'
     }
     hidden.classList.toggle('browse_hidden')
+
+  }
+</script>
+<script>
+  const tiles=document.querySelectorAll('.tiles-wrapper');
+  gsap.set(tiles,{autoAlpha: 1})
+
+  tiles.forEach((tiles,i) => {
+    gsap.set(tiles,{xPercent: 100*i});
+  });
+
+  if(tiles.length>5) {
+    const tilesWrap=gsap.utils.wrap(-100,((tiles.length-1)*100));
+    const duration=tiles.length*2.5;
+
+    gsap.to(tiles,{
+      xPercent: `-=${tiles.length*100}`,
+      duration,
+      repeat: -1,
+      ease: 'none',
+      modifiers: {
+        xPercent: xPercent => tilesWrap(parseFloat(xPercent))
+      }
+    });
 
   }
 </script>
