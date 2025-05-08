@@ -1889,3 +1889,77 @@ body {
   border-radius: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+
+.banner {
+  position: relative;
+}
+
+.jeepney {
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  animation: movit 20s linear infinite;
+}
+
+.the_jeep {
+  width: 40vw;
+  animation: gelatine 1s infinite;
+  /*animation: bounce2 2s ease infinite;*/
+}
+
+@keyframes movit {
+  0% {
+    left: -150%;
+  }
+
+  100% {
+    left: 250%;
+  }
+}
+
+@keyframes gelatine {
+
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+@keyframes bounce2 {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-30px);
+  }
+
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+
+/*@media (min-width: 1680px) {
+
+  .nav-v2-main__item {
+    font-size: 250%;
+  }
+}*/
