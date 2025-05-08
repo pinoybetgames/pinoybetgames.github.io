@@ -207,7 +207,7 @@ a:active {
   padding-left: 20px
 }*/
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .container-fluid {
     padding-right: 32px;
     padding-left: 32px
@@ -219,7 +219,7 @@ a:active {
     padding-right: 72px;
     padding-left: 72px
   }
-}
+}*/
 
 @media only screen and (max-width: 959px) {
 
