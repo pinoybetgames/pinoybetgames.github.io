@@ -1370,6 +1370,7 @@ body {
 .shot-thumbnail-container {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  margin-right: 12px;
 }
 
 
