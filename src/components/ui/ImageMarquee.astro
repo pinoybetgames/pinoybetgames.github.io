@@ -1,0 +1,89 @@
+---
+import Image from '~/components/common/Image.astro';
+import type { Image as ImageType } from '~/types';
+
+export interface Props {
+  /** Array of images to display in the marquee */
+  images: ImageType[];
+  /** Animation duration in seconds (default: 40) */
+  speed?: number;
+  /** Pause animation on hover (default: true) */
+  pauseOnHover?: boolean;
+  /** Additional classes for the container */
+  class?: string;
+}
+
+const { images, speed = 20, pauseOnHover = true, class: className = '' } = Astro.props;
+
+// Duplicate images to create seamless loop
+const duplicatedImages = [...images, ...images];
+---
+
+<div
+  class:list={[
+    'marquee-container overflow-hidden relative w-full',
+    { 'marquee-pause-on-hover': pauseOnHover },
+    className,
+  ]}
+>
+  <div class="marquee-track flex gap-6" style={`--marquee-duration: ${speed}s;`}>
+    {
+      duplicatedImages.map((image, index) => (
+        <div class="marquee-item flex-shrink-0 w-[160px] md:w-[200px]">
+          <Image
+            src={image.src}
+            alt={image.alt || `Slide ${(index % images.length) + 1}`}
+            class="block rounded-lg object-cover h-[272px] w-[160px] md:h-[340px] md:w-[200px]"
+            widths={[160, 200]}
+            sizes="(max-width: 767px) 160px, 200px"
+            loading="eager"
+            width={200}
+            height={340}
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .marquee-track {
+    animation: marquee-scroll var(--marquee-duration, 20s) linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .marquee-item img {
+    display: block;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-pause-on-hover:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation-play-state: paused;
+    }
+  }
+</style>

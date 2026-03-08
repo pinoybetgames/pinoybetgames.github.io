@@ -1,0 +1,258 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "~/layouts/PageLayout.astro";
+
+import Hero from "~/components/widgets/Hero.astro";
+import Brands from "~/components/widgets/Brands.astro";
+import Features from "~/components/widgets/Features.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Content from "~/components/widgets/Content.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import Stats from "~/components/widgets/Stats.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import Button from "~/components/ui/Button.astro";
+import { sortGamesByWeightThenTitle } from "~/utils/sortGames";
+
+const metadata = {
+  title: "Pinoy Bet Games | Ready-Made HTML5 Casino Games for Operators",
+  ignoreTitleTemplate: true,
+};
+
+const games = await getCollection("games");
+// Sort games by weightage (desc), then title (asc)
+const sortedGames = sortGamesByWeightThenTitle(games);
+
+const featuredGames = sortedGames.slice(0, 9).map((game) => ({
+  title: game.data.title,
+  description: game.data.description,
+  image: { src: game.data.image, alt: game.data.title },
+  callToAction: { href: `/games/${game.data.slug}` },
+  isNew: game.data.new || false,
+}));
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: "primary",
+        text: "Become a Partner",
+        href: "/contact",
+      },
+    ]}
+    images={[
+      { src: "~/assets/images/marquee/slide-01.png", alt: "Game 1" },
+      { src: "~/assets/images/marquee/slide-02.png", alt: "Game 2" },
+      { src: "~/assets/images/marquee/slide-03.png", alt: "Game 3" },
+      { src: "~/assets/images/marquee/slide-04.png", alt: "Game 4" },
+      { src: "~/assets/images/marquee/slide-05.png", alt: "Game 5" },
+      { src: "~/assets/images/marquee/slide-06.png", alt: "Game 6" },
+      { src: "~/assets/images/marquee/slide-07.png", alt: "Game 7" },
+      { src: "~/assets/images/marquee/slide-08.png", alt: "Game 8" },
+      { src: "~/assets/images/marquee/slide-09.png", alt: "Game 9" },
+      { src: "~/assets/images/marquee/slide-10.png", alt: "Game 10" },
+      { src: "~/assets/images/marquee/slide-11.png", alt: "Game 11" },
+      { src: "~/assets/images/marquee/slide-12.png", alt: "Game 12" },
+    ]}
+  >
+    <Fragment slot="title">Games for every Juan.</Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Ready-made HTML5 casino games inspired by FIlipino culture.</span
+      >
+      <span class="inline-block"
+        >Built for operators, platforms, and aggregators.</span
+      >
+    </Fragment>
+  </Hero>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    classes={{ container: "py-3 md:py-4 lg:py-5" }}
+    stats={[
+      { title: "Years Combined Gaming Experience", amount: "30+" },
+      { title: "Games Live and Growing", amount: "10+" },
+      { title: "Players Engaged Monthly", amount: "45K+" },
+    ]}
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline=""
+    title="What you get with PBG"
+    subtitle="Built for operators who care about retention, not just launches. Everything here exists for one reason: to help your casino grow faster, more sustainably, and with fewer surprises. "
+    items={[
+      {
+        title: "Games Designed to Perform",
+        description:
+          "Our titles are built around proven mechanics, high RTP structures, and regional player behavior. Games players come back to.",
+        icon: "tabler:brand-tailwind",
+      },
+      {
+        title: "Fast, Frictionless Integration",
+        description:
+          "Plug into your platform in days, not months. Clean APIs, predictable behavior, and no unnecessary dependencies slowing your roadmap.",
+        icon: "tabler:components",
+      },
+      {
+        title: "Production-Ready from Day One",
+        description:
+          "No “demo-quality” builds. What you see is what goes live: stable math models, clear configs, and operator-ready controls.",
+        icon: "tabler:list-check",
+      },
+      {
+        title: "Optimized for Speed and Scale",
+        description:
+          "Lightweight builds that load fast, run smoothly, and scale across markets without degrading player experience.",
+        icon: "tabler:rocket",
+      },
+      {
+        title: "Built with Best Practices",
+        description:
+          "Security, performance, and usability are baked in from the start. No shortcuts that come back to bite you later.",
+        icon: "tabler:arrows-right-left",
+      },
+      {
+        title: "Open, Collaborative by Design",
+        description:
+          "We actively work with operators and partners to refine mechanics, themes, and features based on real player data, not assumptions.",
+        icon: "tabler:bulb",
+      },
+    ]}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2 title="Our Games" subtitle="" tagline="" items={featuredGames}>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- All Games Button -->
+  <div class="text-center pb-20">
+    <Button variant="primary" href="/games"> All Games </Button>
+  </div>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: "Stronger Player Engagement",
+        description:
+          "Clear game flow, responsive controls, and familiar mechanics keep players engaged longer without overwhelming them.",
+      },
+      {
+        title: "Built to Improve Over Time",
+        description:
+          "Games are designed to evolve. Updates, tuning, and refinements are part of the lifecycle, not an afterthought.",
+      },
+      {
+        title: "Faster Time to Market",
+        description:
+          "Skip long build cycles. Launch proven games quickly and focus your time on acquisition, retention, and operations.",
+      },
+      {
+        title: "You’re Not Building Alone",
+        description: `We work closely with operators and partners to solve real issues, share insights, and improve performance across releases.`,
+      },
+    ]}
+    image={{
+      src: "~/assets/images/dice-master.png",
+      alt: "Dice Master",
+      class: "bg-transparent shadow-none",
+    }}
+  >
+    <Fragment slot="content">Designed to Support Real Growth</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    subtitle="The questions below cover how PBG works, what to expect, and how we partner with operators."
+    tagline=""
+    classes={{ container: "max-w-6xl" }}
+    items={[
+      {
+        title: "Who is PBG built for?",
+        description:
+          "PBG is built for online casino operators, aggregators, and platforms looking to add high-performing games without long integration cycles or opaque commercial terms.",
+      },
+      {
+        title: "What markets are your games designed for?",
+        description:
+          "Our focus is Asia-Pacific, with strong attention to player behavior, volatility preference, and trust signals common in these markets.",
+      },
+      {
+        title: "Can we test games before going live?",
+        description:
+          "Yes. Demo modes and test environments are available so you can validate performance, UX, and integration before launch.",
+      },
+      {
+        title: "What kind of support do you provide after launch?",
+        description:
+          "Direct access to the team that built the games. No ticket ping-pong. No layers of account managers between you and the people who can actually fix things.",
+      },
+      {
+        title: "Do you provide exclusivity?",
+        description:
+          "Exclusivity can be discussed on a case-by-case basis, depending on market, scope, and partnership structure.",
+      },
+      {
+        title: "How do we get started?",
+        description:
+          "Reach out, tell us about your platform and market, and we’ll walk you through the next steps clearly and quickly.",
+      },
+    ]}
+  />
+
+  <!-- Trusted Partners Widget ******************* -->
+
+  <Brands
+    inlineLabel="Our Trusted Partners"
+    isDark={true}
+    images={[
+      { src: "~/assets/images/partners/nextral.png", alt: "Nextral" },
+      { src: "~/assets/images/partners/gametech.png", alt: "Gametech" },
+      { src: "~/assets/images/partners/reelsoft.png", alt: "Reelsoft" },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gray-900"></div>
+    </Fragment>
+  </Brands>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: "primary",
+        text: "Become a Partner",
+        href: "/contact",
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Launch Faster. Stay Flexible. Grow Smarter.
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      No lock-in. Fast integration. Transparent performance.
+    </Fragment>
+  </CallToAction>
+</Layout>

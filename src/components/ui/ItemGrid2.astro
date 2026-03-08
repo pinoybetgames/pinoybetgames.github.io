@@ -1,0 +1,131 @@
+---
+import type { ItemGrid as Props } from "~/types";
+import { Icon } from "astro-icon/components";
+import { twMerge } from "tailwind-merge";
+import Button from "./Button.astro";
+import Image from "~/components/common/Image.astro";
+
+const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
+
+const {
+  container: containerClass = "",
+  // container: containerClass = "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  panel: panelClass = "",
+  title: titleClass = "",
+  description: descriptionClass = "",
+  icon: defaultIconClass = "text-primary",
+  image: imageClass = "",
+} = classes;
+---
+
+{
+  items && items.length > 0 && (
+    <div
+      class={twMerge(
+        `grid gap-8 gap-x-12 sm:gap-y-8 ${
+          columns === 4
+            ? "lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2"
+            : columns === 3
+              ? "lg:grid-cols-3 sm:grid-cols-2"
+              : columns === 2
+                ? "sm:grid-cols-2 "
+                : ""
+        }`,
+        containerClass,
+      )}
+    >
+      {items.map(
+        ({
+          title,
+          description,
+          icon,
+          image,
+          callToAction,
+          isNew = false,
+          classes: itemClasses = {},
+        }) => {
+          const content = (
+            <>
+              {image ? (
+                <div class="relative">
+                  <Image
+                    src={image.src}
+                    alt={image.alt || title || ""}
+                    class={twMerge(
+                      "w-full h-48 object-cover rounded-lg mb-4",
+                      imageClass,
+                      itemClasses?.image,
+                    )}
+                    widths={[400, 768]}
+                    sizes="(max-width: 767px) 400px, 768px"
+                  />
+                  {isNew && (
+                    <div class="absolute top-4 left-4 bg-rose-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                      New Game
+                    </div>
+                  )}
+                </div>
+              ) : icon || defaultIcon ? (
+                <Icon
+                  name={icon || defaultIcon}
+                  class={twMerge(
+                    "mb-2 w-10 h-10",
+                    defaultIconClass,
+                    itemClasses?.icon,
+                  )}
+                />
+              ) : null}
+              <div
+                class={twMerge(
+                  "text-xl font-bold",
+                  titleClass,
+                  itemClasses?.title,
+                )}
+              >
+                {title}
+              </div>
+              {description && (
+                <p
+                  class={twMerge(
+                    "text-muted mt-2",
+                    descriptionClass,
+                    itemClasses?.description,
+                  )}
+                  set:html={description}
+                />
+              )}
+              {callToAction && !callToAction.href && (
+                <div class="mt-2">
+                  <Button {...callToAction} />
+                </div>
+              )}
+            </>
+          );
+
+          return callToAction?.href ? (
+            <a
+              href={callToAction.href}
+              class={twMerge(
+                "relative flex flex-col intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade transition-transform duration-200 hover:scale-[1.02]",
+                panelClass,
+                itemClasses?.panel,
+              )}
+            >
+              {content}
+            </a>
+          ) : (
+            <div
+              class={twMerge(
+                "relative flex flex-col intersect-once intersect-quarter intersect-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade",
+                panelClass,
+                itemClasses?.panel,
+              )}
+            >
+              {content}
+            </div>
+          );
+        },
+      )}
+    </div>
+  )
+}

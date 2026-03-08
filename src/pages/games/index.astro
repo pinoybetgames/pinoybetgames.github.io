@@ -1,0 +1,68 @@
+---
+import { getCollection } from "astro:content";
+
+import Layout from "~/layouts/PageLayout.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import { sortGamesByWeightThenTitle } from "~/utils/sortGames";
+
+const metadata = {
+  title: "Games",
+  description:
+    "Explore our portfolio of ready-made HTML5 casino games built for operators, platforms, and aggregators.",
+};
+
+const games = await getCollection("games");
+// Sort games by weightage (desc), then title (asc)
+const sortedGames = sortGamesByWeightThenTitle(games);
+
+const gameItems = sortedGames.map((game) => ({
+  title: game.data.title,
+  description: game.data.description,
+  image: { src: game.data.image, alt: game.data.title },
+  callToAction: { href: `/games/${game.data.slug}` },
+  isNew: game.data.new || false,
+}));
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <Hero
+    tagline="Our Portfolio"
+    title="Games Built to Perform"
+    subtitle="Ready-made HTML5 casino games designed for the Asian market. Proven mechanics, fast integration, transparent terms."
+    actions={[
+      {
+        variant: "primary",
+        text: "Become a Partner",
+        href: "/contact",
+      },
+    ]}
+  />
+
+  <!-- Games Grid -->
+  <Features2 title="" subtitle="" items={gameItems} columns={3}>
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- CTA Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: "primary",
+        text: "Become a Partner",
+        href: "/contact",
+        icon: "tabler:mail",
+      },
+    ]}
+  >
+    <Fragment slot="title"> Ready to launch? </Fragment>
+    <Fragment slot="subtitle">
+      Fast integration. Transparent terms. Direct support from the team that
+      built the games.
+    </Fragment>
+  </CallToAction>
+</Layout>

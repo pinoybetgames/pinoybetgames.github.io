@@ -1,0 +1,179 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import { getCollection, render } from 'astro:content';
+import type { ImageMetadata } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+import { findImage } from '~/utils/images';
+import type { MetaData } from '~/types';
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const games = await getCollection('games');
+  return games.map((game) => ({
+    params: { slug: game.data.slug },
+    props: { game },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { game } = Astro.props as Props;
+const { Content } = await render(game);
+
+const image = (await findImage(game.data.image)) as ImageMetadata | string | undefined;
+
+const metadata = {
+  title: game.data.title,
+  description: game.data.description,
+  openGraph: {
+    type: 'website',
+    ...(image
+      ? { images: [{ url: image, width: (image as ImageMetadata)?.width, height: (image as ImageMetadata)?.height }] }
+      : {}),
+  },
+} as MetaData;
+
+const specs = [
+  { label: 'RTP', value: game.data.rtp, icon: 'tabler:percentage' },
+  { label: 'Volatility', value: game.data.volatility, icon: 'tabler:chart-line' },
+  { label: 'Reels', value: game.data.reels, icon: 'tabler:layout-grid' },
+  { label: 'Paylines', value: game.data.paylines, icon: 'tabler:line' },
+  { label: 'Min Bet', value: `$${game.data.minBet}`, icon: 'tabler:coin' },
+  { label: 'Max Bet', value: `$${game.data.maxBet}`, icon: 'tabler:coins' },
+  { label: 'Theme', value: game.data.theme, icon: 'tabler:palette' },
+  { label: 'Category', value: game.data.category, icon: 'tabler:category' },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="py-12 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+        <!-- Game Image -->
+        <div class="relative">
+          {
+            image && (
+              <Image
+                src={image}
+                alt={game.data.title}
+                class="w-full rounded-xl shadow-2xl"
+                widths={[400, 768]}
+                sizes="(max-width: 768px) 400px, 768px"
+                width={768}
+                height={432}
+                loading="eager"
+              />
+            )
+          }
+          <div
+            class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg"
+          >
+            {game.data.category}
+          </div>
+        </div>
+
+        <!-- Game Info -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight dark:text-white mb-4">
+            {game.data.title}
+          </h1>
+          <p class="text-xl text-muted dark:text-slate-400 mb-6">
+            {game.data.description}
+          </p>
+
+          <div class="flex flex-wrap gap-3">
+            {
+              game.data.demoUrl && (
+                <Button variant="primary" href={game.data.demoUrl} target="_blank" icon="tabler:player-play">
+                  Try Demo
+                </Button>
+              )
+            }
+            <Button variant="secondary" href="/contact" icon="tabler:mail"> Become a Partner </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Specs Grid -->
+  <section class="py-12 bg-blue-50 dark:bg-slate-800/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl font-bold dark:text-white mb-8 text-center">Game Specifications</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+          specs.map((spec) => (
+            <div class="bg-white dark:bg-slate-900 rounded-lg p-4 shadow-md text-center">
+              <Icon name={spec.icon} class="w-8 h-8 mx-auto mb-2 text-primary" />
+              <div class="text-sm text-muted dark:text-slate-400 mb-1">{spec.label}</div>
+              <div class="text-lg font-semibold dark:text-white">{spec.value}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  {
+    game.data.features && game.data.features.length > 0 && (
+      <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <h2 class="text-2xl font-bold dark:text-white mb-8 text-center">Key Features</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {game.data.features.map((feature) => (
+              <div class="flex items-center gap-3 bg-white dark:bg-slate-900 rounded-lg p-4 shadow-md">
+                <Icon name="tabler:check" class="w-6 h-6 text-green-500 flex-shrink-0" />
+                <span class="dark:text-white">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Promotional Content (Markdown Body) -->
+  <section class="py-12 bg-blue-50 dark:bg-transparent">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div
+        class="prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary dark:prose-a:text-blue-400 prose-img:rounded-md prose-img:shadow-lg"
+      >
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Games Link -->
+  <section class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <Button variant="link" href="/games" icon="tabler:arrow-left" class="text-primary"> Back to All Games </Button>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Become a Partner',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ready to add {game.data.title} to your platform?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Fast integration. Transparent terms. Direct support from the team that built it.
+    </Fragment>
+  </CallToAction>
+</Layout>

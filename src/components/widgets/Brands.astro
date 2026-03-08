@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Brands as Props } from '~/types';
+
+import Image from '~/components/common/Image.astro';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+const {
+  title = '',
+  subtitle = '',
+  tagline = '',
+  icons = [],
+  images = [],
+  inlineLabel = '',
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-7xl mx-auto px-8 py-4 md:py-6 lg:py-3 ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div class="flex flex-col sm:flex-row flex-wrap justify-center sm:justify-between items-center gap-4 sm:gap-x-8">
+    {
+      inlineLabel && (
+        <span class="text-sm font-medium uppercase tracking-widest text-gray-500 whitespace-nowrap">{inlineLabel}</span>
+      )
+    }
+    {icons && icons.map((icon) => <Icon name={icon} class="py-3 lg:py-5 w-12 h-auto mx-auto sm:mx-0 text-gray-500" />)}
+    {
+      images &&
+        images.map(
+          (image) =>
+            image.src && (
+              <div class="flex justify-center items-center col-span-1 my-2 lg:my-4 py-1 px-3">
+                <Image src={image.src} alt={image.alt || ''} class="h-auto w-auto grayscale opacity-60" />
+              </div>
+            )
+        )
+    }
+  </div>
+</WidgetWrapper>

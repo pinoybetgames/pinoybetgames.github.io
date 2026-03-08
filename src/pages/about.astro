@@ -1,0 +1,182 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'About',
+  description:
+    'Learn about Pinoy Bet Games - a Manila-based game studio creating HTML5 casino games rooted in Filipino culture for the global iGaming market.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline="About Us"
+    title="Games Built Different"
+    subtitle="We're a Manila-based game studio creating HTML5 casino games rooted in Filipino culture and built for the global iGaming market. Our mission: bring world-class gaming experiences to operators who value quality, speed, and partnership."
+  />
+
+  <!-- Our Story -->
+  <Content
+    id="story"
+    title="Our Story"
+    image={{
+      src: '~/assets/images/dice-master.png',
+      alt: 'Pinoy Bet Games Studio',
+      class: 'bg-transparent shadow-none',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        Pinoy Bet Games started with a simple observation: the global casino market was full of games that looked the
+        same, played the same, and ignored the rich gaming traditions of Southeast Asia.
+      </p>
+      <p class="mb-4">
+        We set out to change that. Drawing from decades of combined experience in game development, mathematics, and the
+        iGaming industry, we built a studio focused on creating games that resonate with players in our region while
+        meeting the technical and commercial standards operators expect.
+      </p>
+      <p>
+        Today, we work with operators, aggregators, and platforms across Asia-Pacific, delivering production-ready games
+        that integrate fast, perform reliably, and keep players coming back.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- What Drives Us -->
+  <Content
+    isReversed
+    id="vision"
+    title="What Drives Us"
+    classes={{ container: 'pb-0' }}
+    image={{
+      src: '~/assets/images/red-hat.png',
+      alt: 'Pinoy Bet Games Red Hat',
+      class: 'bg-transparent shadow-none',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="mb-4">
+        <strong>Quality over quantity.</strong> We'd rather ship ten games that operators love than a hundred that collect
+        dust. Every title in our portfolio is built to perform, not just to pad a catalog.
+      </p>
+      <p class="mb-4">
+        <strong>Partnerships, not transactions.</strong> We work closely with our partners to understand their markets, solve
+        real problems, and improve together over time. Your success is our success.
+      </p>
+      <p>
+        <strong>Filipino roots, global standards.</strong> Our games celebrate the culture we come from while meeting the
+        technical, regulatory, and commercial expectations of operators worldwide.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Core Capabilities -->
+  <Features
+    id="capabilities"
+    title="What We Bring to the Table"
+    subtitle="From concept to live operations, we handle every aspect of game development so you can focus on growing your platform."
+    columns={3}
+    items={[
+      {
+        title: 'Game Design & Art',
+        description: 'Original themes, compelling visuals, and player-first UX designed for engagement and retention.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Math Engineering',
+        description: 'Proven math models, balanced volatility, and RTP structures tuned for real player behavior.',
+        icon: 'tabler:calculator',
+      },
+      {
+        title: 'Seamless Integration',
+        description: 'Clean APIs, clear documentation, and hands-on support to get you live in days, not months.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Live Operations',
+        description: 'Post-launch monitoring, tuning, and updates to keep games performing at their best.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Custom Development',
+        description: 'Need something unique? We build custom games and features tailored to your platform and market.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Regional Expertise',
+        description:
+          'Deep understanding of Asian markets, player preferences, and cultural nuances that drive engagement.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+
+  <!-- Our Journey -->
+  <Steps
+    id="journey"
+    title="Our Journey"
+    tagline="Milestones"
+    items={[
+      {
+        title: 'Studio Founded',
+        description:
+          'Pinoy Bet Games was established in Manila with a vision to create world-class casino games rooted in Filipino culture.',
+        icon: 'tabler:flag',
+      },
+      {
+        title: 'First Game Launched',
+        description:
+          'Our debut title went live, proving that culturally-inspired games could compete on the global stage.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Partnership Program',
+        description: 'We launched our operator partnership program, bringing on our first major platform integrations.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Portfolio Expansion',
+        description:
+          'Our game library grew to include slots, table games, and arcade-style experiences across multiple themes.',
+        icon: 'tabler:stack-2',
+      },
+      {
+        title: "What's Next",
+        description: "New markets, new partnerships, and new games. We're just getting started.",
+        icon: 'tabler:arrow-big-right',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/gentleman-dice.jpg',
+      alt: 'Pinoy Bet Games Gentleman Dice',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Steps>
+
+  <!-- Call to Action -->
+  <CallToAction
+    title="Let's Build Something Together"
+    subtitle="Ready to add high-performing, culturally-resonant games to your platform? Let's talk."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Become a Partner',
+        href: '/contact',
+      },
+    ]}
+  />
+</Layout>

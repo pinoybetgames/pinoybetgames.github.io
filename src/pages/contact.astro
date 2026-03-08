@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features from '~/components/widgets/Features.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Partner With Us | Pinoy Bet Games',
+  description:
+    'Partner with Pinoy Bet Games to integrate proven, culturally-resonant Filipino games. Fast integration, transparent terms, hands-on support for operators and aggregators.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <HeroText
+    tagline=""
+    title="Let's Build Something Together"
+    subtitle="Ready to integrate proven, culturally-resonant games? We're accepting partnership inquiries from operators, aggregators, and platforms worldwide."
+  />
+
+  <!-- Quick Contact Access -->
+  <section class="py-8 md:py-12 text-center">
+    <p class="text-lg mb-4 text-gray-600 dark:text-gray-400">Ready to connect?</p>
+    <a
+      href="mailto:info@pinoybetgames.com?subject=Partnership%20Inquiry"
+      class="inline-flex items-center justify-center rounded-full font-semibold text-center text-base leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-2 focus:ring-offset-2 bg-fuchsia-600 text-white border-2 border-fuchsia-600 hover:bg-fuchsia-700 hover:border-fuchsia-700 dark:bg-fuchsia-600 dark:border-fuchsia-600 dark:hover:bg-fuchsia-700 dark:hover:border-fuchsia-700 cursor-pointer"
+    >
+      Contact Us
+      <Icon name="tabler:mail" class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block" />
+    </a>
+  </section>
+
+  <!-- Why Partner With Us -->
+  <Features
+    id="benefits"
+    title="Why Choose Us"
+    subtitle=""
+    tagline=""
+    columns={2}
+    items={[
+      {
+        title: 'Culturally Relevant Content',
+        description:
+          'Games that resonate deeply with Filipino and Southeast Asian players—content that stands out in a crowded market and drives genuine engagement.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Fast, Transparent Integration',
+        description: 'Get live in weeks, not months. No hidden fees, no surprise revenue shares.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Proven Performance',
+        description:
+          'Our games are already live with operators and aggregators across Asia-Pacific. Real platforms, real results, real players.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Partnership-First Approach',
+        description:
+          'We work closely with partners to understand your market, solve real problems, and grow together. Your success is our success.',
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features>
+
+  <!-- Call to Action -->
+  <CallToAction
+    title="Ready to Get Started?"
+    subtitle="Email us to discuss partnership opportunities. We typically respond within 24 hours on business days."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Start Partnership Conversation',
+        href: 'mailto:info@pinoybetgames.com?subject=Partnership%20Inquiry',
+        icon: 'tabler:mail',
+      },
+    ]}
+  />
+</Layout>
