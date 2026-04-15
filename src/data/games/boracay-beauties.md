@@ -15,7 +15,7 @@ theme: "Beach / Tropical"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://vip.gametech88.com/gamelauncher/play/GAMETECH55/PBG_BORACAY_BEAUTIES"
+demoUrl: "https://vip.gametech88.com/gamelauncher/play/DEMO/PBG_BORACAY_BEAUTIES"
 
 weightage: 1
 
