@@ -16,7 +16,7 @@ category: "Video Slot"
 
 demoUrl: "https://api.lightningcore.net/demo/launchGame?gamecode=sweetdash&moneymode=FUN"
 
-weightage: 3
+weightage: 2
 
 features:
   - "Candy Dash Free Spins with Increasing Multipliers"

@@ -15,7 +15,7 @@ theme: "Folklore / Horror"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=aswangattack&moneymode=FUN&currency=PHP"
+demoUrl: "https://api.lightningcore.net/demo/launchGame?gamecode=aswangattack&moneymode=FUN"
 
 weightage: 1
 
