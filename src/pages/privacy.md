@@ -1,6 +1,6 @@
 ---
-title: 'Privacy Policy'
-layout: '~/layouts/MarkdownLayout.astro'
+title: "Privacy Policy"
+layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 ## Introduction
@@ -132,4 +132,4 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 
 If you have questions or concerns about this Privacy Policy or our data practices, please contact us at:
 
-**Email:** info@pinoybetgames.com
+**Email:** info@playbeyondgames.com
