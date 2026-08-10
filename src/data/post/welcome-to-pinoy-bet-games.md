@@ -1,9 +1,9 @@
 ---
 publishDate: 2024-03-18
-title: 'Welcome to Pinoy Bet Games'
-excerpt: 'Introducing Pinoy Bet Games—a new game studio building ready-made HTML5 casino games designed for the Asian market.'
-image: '~/assets/images/dice-master.jpg'
-category: 'Company News'
+title: "Welcome to Play Beyond Games"
+excerpt: "Introducing Play Beyond Games—a new game studio building ready-made HTML5 casino games designed for the Asian market."
+image: "~/assets/images/dice-master.jpg"
+category: "Company News"
 tags:
   - company
   - announcements
@@ -11,7 +11,7 @@ tags:
 
 ## A New Chapter in Asian Gaming
 
-We're excited to announce the launch of **Pinoy Bet Games (PBG)**—a game development studio focused on creating high-quality, ready-made HTML5 casino games specifically designed for the Asian market.
+We're excited to announce the launch of **Play Beyond Games (PBG)**—a game development studio focused on creating high-quality, ready-made HTML5 casino games specifically designed for the Asian market.
 
 Our mission is simple: build games that operators can integrate quickly, players enjoy genuinely, and everyone understands clearly.
 
@@ -46,4 +46,4 @@ Over the coming months, we'll be rolling out our initial game portfolio, opening
 
 If you're an operator, aggregator, or platform looking to add culturally relevant, high-performing games to your offering, we'd love to hear from you.
 
-Welcome to Pinoy Bet Games. Let's build something great together.
+Welcome to Play Beyond Games. Let's build something great together.

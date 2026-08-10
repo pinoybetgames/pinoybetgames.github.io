@@ -5,7 +5,7 @@ layout: "~/layouts/MarkdownLayout.astro"
 
 ## Introduction
 
-Pinoy Bet Games (“PBG,” “we,” “us,” or “our”) respects your privacy and is committed to protecting it. This Privacy Policy explains how we collect, use, store, and disclose information when you visit our website https://www.pinoybetgames.com (the “Website”) or interact with us through our services.
+Play Beyond Games (“PBG,” “we,” “us,” or “our”) respects your privacy and is committed to protecting it. This Privacy Policy explains how we collect, use, store, and disclose information when you visit our website https://www.pinoybetgames.com (the “Website”) or interact with us through our services.
 
 By using our Website, you agree to the collection and use of information in accordance with this policy.
 

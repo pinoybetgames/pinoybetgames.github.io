@@ -1,9 +1,9 @@
 ---
 publishDate: 2024-06-17
-title: 'Partnership Opportunities Now Open'
-excerpt: 'Ready to add proven, culturally relevant games to your platform? We are now accepting partnership inquiries from operators and aggregators.'
-image: '~/assets/images/red-hat-dice.jpg'
-category: 'Company News'
+title: "Partnership Opportunities Now Open"
+excerpt: "Ready to add proven, culturally relevant games to your platform? We are now accepting partnership inquiries from operators and aggregators."
+image: "~/assets/images/red-hat-dice.jpg"
+category: "Company News"
 tags:
   - partnerships
   - business
@@ -12,7 +12,7 @@ tags:
 
 ## We're Open for Business
 
-After months of development and testing, we're excited to announce that **Pinoy Bet Games is now accepting partnership inquiries** from operators, aggregators, and platforms worldwide.
+After months of development and testing, we're excited to announce that **Play Beyond Games is now accepting partnership inquiries** from operators, aggregators, and platforms worldwide.
 
 If you're looking to expand your game portfolio with high-quality, culturally relevant titles designed for Asian markets, we want to hear from you.
 
