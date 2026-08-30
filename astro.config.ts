@@ -23,10 +23,15 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  site: 'https://www.playbeyondgames.com',
+  base: '/',
 
   integrations: [
     tailwind({
       applyBaseStyles: false,
+    }),
+    astrowind({
+      config: './src/config.yaml',
     }),
     sitemap(),
     mdx(),
@@ -66,9 +71,7 @@ export default defineConfig({
       Logger: 1,
     }),
 
-    astrowind({
-      config: './src/config.yaml',
-    }),
+    
   ],
 
   image: {
