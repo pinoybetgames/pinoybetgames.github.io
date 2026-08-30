@@ -66,7 +66,8 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
+      id: "G-TSYTR79GKP"
+      partytown: false
 
 ui:
   theme: "dark:only" # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
