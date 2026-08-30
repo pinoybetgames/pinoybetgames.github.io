@@ -1,6 +1,6 @@
 site:
   name: Play Beyond Games
-  site: "https://astrowind.vercel.app"
+  site: "https://www.playbeyondgames.com"
   base: "/"
   trailingSlash: false
 
