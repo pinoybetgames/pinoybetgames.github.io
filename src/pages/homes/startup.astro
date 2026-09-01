@@ -14,7 +14,8 @@ import Brands from '~/components/widgets/Brands.astro';
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Startup Landing Page',
+  title: 'Startup | Play Beyond Games',
+  description: 'Ready-made HTML5 casino games and templates for startups and operators. Fast integration, production-ready titles, and operator-focused tooling.',
 };
 ---
 
@@ -22,37 +23,31 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Startup Web Demo"
+    tagline="Startup Website"
     actions={[
       {
         variant: 'primary',
-        target: '_blank',
-        text: 'Get templates',
-        href: 'https://github.com/arthelokyo/astrowind',
-        icon: 'tabler:download',
+        target: '_self',
+        text: 'Contact Sales',
+        href: '/contact',
+        icon: 'tabler:mail',
       },
       { text: 'Learn more', href: '#features' },
     ]}
   >
     <Fragment slot="title">
       Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white">Startup</span
-      > with Astrowind templates
+        class="text-accent dark:text-white">Startup</span>
+      with Play Beyond Games
     </Fragment>
 
     <Fragment slot="subtitle">
-      Step into the spotlight with <span class="font-semibold">Astrowind</span> templates, your pathway to fortifying your
-      startup's digital footprint, fostering credibility, and expanding your reach.
+      Launch faster with ready-made HTML5 games and templates built for operators — reliable, fast, and built to
+      convert.
     </Fragment>
 
     <Fragment slot="image">
-      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
-      <style is:inline>
-        lite-youtube {
-          margin: 0 auto;
-          max-width: 100%;
-        }
-      </style>
+      <img src="/_astro/dice-master.DuaZvAer.png" alt="Startup showcase" class="mx-auto rounded-lg shadow-lg" />
     </Fragment>
   </Hero>
 
