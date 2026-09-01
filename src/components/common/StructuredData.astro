@@ -106,4 +106,4 @@ if (props.publishDate || props.author) {
 const out = JSON.stringify(jsonLd, null, 2);
 ---
 
-<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: out }} />
+<script type="application/ld+json" set:html={out}></script>
