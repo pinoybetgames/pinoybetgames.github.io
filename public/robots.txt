@@ -1,2 +1,10 @@
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://www.playbeyondgames.com/sitemap-index.xml
