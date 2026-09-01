@@ -1,0 +1,79 @@
+---
+import { SITE } from 'astrowind:config';
+import { getAsset, getCanonical } from '~/utils/permalinks';
+
+const props = Astro.props as {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  publishDate?: string | Date;
+  author?: string;
+  images?: Array<{ url: string }>|string[]|string;
+};
+
+const title = props.title || SITE?.name;
+const description = props.description || '';
+const canonical = props.canonical || String(getCanonical(String(Astro.url.pathname)));
+
+const logoPath = getAsset('/assets/favicons/apple-touch-icon.png');
+const logo = SITE?.site ? new URL(logoPath, SITE.site).toString() : logoPath;
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  'url': SITE?.site || '',
+  'name': SITE?.name || title,
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'name': SITE?.name || title,
+  'url': SITE?.site || '',
+  'logo': logo || undefined,
+};
+
+const jsonLd: any[] = [websiteSchema, organizationSchema];
+
+// If this page looks like an article/post, add Article schema
+if (props.publishDate || props.author) {
+  const article: any = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': canonical,
+    },
+    'headline': title,
+    'description': description,
+    'publisher': {
+      '@type': 'Organization',
+      'name': SITE?.name || title,
+      'logo': { '@type': 'ImageObject', 'url': logo },
+    },
+  };
+
+  if (props.images) {
+    if (Array.isArray(props.images)) {
+      article.image = props.images.map((i: any) => (typeof i === 'string' ? i : i.url));
+    } else if (typeof props.images === 'string') {
+      article.image = [props.images];
+    }
+  }
+
+  if (props.author) {
+    article.author = { '@type': 'Person', 'name': props.author };
+  }
+
+  if (props.publishDate) {
+    const d = typeof props.publishDate === 'string' ? props.publishDate : new Date(props.publishDate).toISOString();
+    article.datePublished = d;
+  }
+
+  jsonLd.push(article);
+}
+
+const out = JSON.stringify(jsonLd, null, 2);
+---
+
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: out }} />
