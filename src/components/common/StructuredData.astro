@@ -7,6 +7,7 @@ const props = Astro.props as {
   description?: string;
   canonical?: string;
   publishDate?: string | Date;
+  dateModified?: string | Date;
   author?: string;
   images?: Array<{ url: string }>|string[]|string;
 };
@@ -69,6 +70,35 @@ if (props.publishDate || props.author) {
     const d = typeof props.publishDate === 'string' ? props.publishDate : new Date(props.publishDate).toISOString();
     article.datePublished = d;
   }
+
+  // dateModified support
+  const modified = (props as any).dateModified || (props as any).modifiedDate || (props as any).lastModified;
+  if (modified) {
+    const dm = typeof modified === 'string' ? modified : new Date(modified).toISOString();
+    article.dateModified = dm;
+  }
+
+  // BreadcrumbList for articles
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': SITE?.name || 'Home',
+        'item': SITE?.site || '/'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': title,
+        'item': canonical
+      }
+    ]
+  };
+
+  jsonLd.push(breadcrumb);
 
   jsonLd.push(article);
 }
