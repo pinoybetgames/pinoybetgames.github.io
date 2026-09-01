@@ -1,6 +1,6 @@
 ---
-import { SITE } from 'astrowind:config';
-import { getAsset, getCanonical } from '~/utils/permalinks';
+import { SITE } from "astrowind:config";
+import { getAsset, getCanonical } from "~/utils/permalinks";
 
 const props = Astro.props as {
   title?: string;
@@ -9,29 +9,30 @@ const props = Astro.props as {
   publishDate?: string | Date;
   dateModified?: string | Date;
   author?: string;
-  images?: Array<{ url: string }>|string[]|string;
+  images?: Array<{ url: string }> | string[] | string;
 };
 
 const title = props.title || SITE?.name;
-const description = props.description || '';
-const canonical = props.canonical || String(getCanonical(String(Astro.url.pathname)));
+const description = props.description || "";
+const canonical =
+  props.canonical || String(getCanonical(String(Astro.url.pathname)));
 
-const logoPath = getAsset('/assets/favicons/apple-touch-icon.png');
+const logoPath = getAsset("/assets/favicons/apple-touch-icon.png");
 const logo = SITE?.site ? new URL(logoPath, SITE.site).toString() : logoPath;
 
 const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  'url': SITE?.site || '',
-  'name': SITE?.name || title,
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: SITE?.site || "",
+  name: SITE?.name || title,
 };
 
 const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  'name': SITE?.name || title,
-  'url': SITE?.site || '',
-  'logo': logo || undefined,
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE?.name || title,
+  url: SITE?.site || "",
+  logo: logo || undefined,
 };
 
 const jsonLd: any[] = [websiteSchema, organizationSchema];
@@ -39,63 +40,74 @@ const jsonLd: any[] = [websiteSchema, organizationSchema];
 // If this page looks like an article/post, add Article schema
 if (props.publishDate || props.author) {
   const article: any = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    'mainEntityOfPage': {
-      '@type': 'WebPage',
-      '@id': canonical,
+    "@context": "https://schema.org",
+    "@type": "Article",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonical,
     },
-    'headline': title,
-    'description': description,
-    'publisher': {
-      '@type': 'Organization',
-      'name': SITE?.name || title,
-      'logo': { '@type': 'ImageObject', 'url': logo },
+    headline: title,
+    description: description,
+    publisher: {
+      "@type": "Organization",
+      name: SITE?.name || title,
+      logo: { "@type": "ImageObject", url: logo },
     },
   };
 
   if (props.images) {
     if (Array.isArray(props.images)) {
-      article.image = props.images.map((i: any) => (typeof i === 'string' ? i : i.url));
-    } else if (typeof props.images === 'string') {
+      article.image = props.images.map((i: any) =>
+        typeof i === "string" ? i : i.url,
+      );
+    } else if (typeof props.images === "string") {
       article.image = [props.images];
     }
   }
 
   if (props.author) {
-    article.author = { '@type': 'Person', 'name': props.author };
+    article.author = { "@type": "Person", name: props.author };
   }
 
   if (props.publishDate) {
-    const d = typeof props.publishDate === 'string' ? props.publishDate : new Date(props.publishDate).toISOString();
+    const d =
+      typeof props.publishDate === "string"
+        ? props.publishDate
+        : new Date(props.publishDate).toISOString();
     article.datePublished = d;
   }
 
   // dateModified support
-  const modified = (props as any).dateModified || (props as any).modifiedDate || (props as any).lastModified;
+  const modified =
+    (props as any).dateModified ||
+    (props as any).modifiedDate ||
+    (props as any).lastModified;
   if (modified) {
-    const dm = typeof modified === 'string' ? modified : new Date(modified).toISOString();
+    const dm =
+      typeof modified === "string"
+        ? modified
+        : new Date(modified).toISOString();
     article.dateModified = dm;
   }
 
   // BreadcrumbList for articles
   const breadcrumb = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    'itemListElement': [
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
       {
-        '@type': 'ListItem',
-        'position': 1,
-        'name': SITE?.name || 'Home',
-        'item': SITE?.site || '/'
+        "@type": "ListItem",
+        position: 1,
+        name: SITE?.name || "Home",
+        item: SITE?.site || "/",
       },
       {
-        '@type': 'ListItem',
-        'position': 2,
-        'name': title,
-        'item': canonical
-      }
-    ]
+        "@type": "ListItem",
+        position: 2,
+        name: title,
+        item: canonical,
+      },
+    ],
   };
 
   jsonLd.push(breadcrumb);
@@ -106,4 +118,4 @@ if (props.publishDate || props.author) {
 const out = JSON.stringify(jsonLd, null, 2);
 ---
 
-<script type="application/ld+json" set:html={out}></script>
+<script type="application/ld+json" set:html={out} />
