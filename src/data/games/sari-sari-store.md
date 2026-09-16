@@ -15,7 +15,7 @@ theme: "Filipino Culture / Nostalgia"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://vip.gametech88.com/gamelauncher/play/DEMO/PBG_SARI_SARI_STORE?democurrency=PHP"
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=sarisaristore&moneymode=FUN&currency=PHP"
 
 weightage: 1
 

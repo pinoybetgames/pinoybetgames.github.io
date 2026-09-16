@@ -15,7 +15,7 @@ theme: "Asian Fantasy"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://vip.gametech88.com/gamelauncher/play/DEMO/PBG_DRAGON_PHOENIX?democurrency=PHP"
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=dragonphoenix&moneymode=FUN&currency=PHP"
 
 weightage: 1
 

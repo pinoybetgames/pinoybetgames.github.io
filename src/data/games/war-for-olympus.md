@@ -16,7 +16,7 @@ theme: "Greek Mythology / Gods"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://api.lightningcore.net/demo/launchGame?gamecode=warforolympus&moneymode=FUN"
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=warforolympus&moneymode=FUN&currency=PHP"
 
 weightage: 3
 

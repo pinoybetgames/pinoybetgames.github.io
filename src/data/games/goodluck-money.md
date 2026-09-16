@@ -15,7 +15,7 @@ theme: "Wealth / Fortune"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://vip.gametech88.com/gamelauncher/play/DEMO/PBG_GOODLUCK_MONEY"
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=goodluckmoney&moneymode=FUN&currency=PHP"
 
 weightage: 1
 

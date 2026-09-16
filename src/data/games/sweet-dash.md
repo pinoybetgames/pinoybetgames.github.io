@@ -14,7 +14,7 @@ maxBet: 100
 theme: "Candy | Arcade"
 category: "Video Slot"
 
-demoUrl: "https://api.lightningcore.net/demo/launchGame?gamecode=sweetdash&moneymode=FUN"
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=sweetdash&moneymode=FUN&currency=PHP"
 
 weightage: 2
 

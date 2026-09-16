@@ -15,7 +15,7 @@ theme: "Cute / Fantasy"
 category: "Cluster Slot"
 
 # Demo
-demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=popmonster&moneymode=FUN&language=en&currency=PHP&lobbyurl="
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=popmonster&moneymode=FUN&currency=PHP"
 
 weightage: 1
 

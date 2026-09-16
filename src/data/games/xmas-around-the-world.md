@@ -15,7 +15,7 @@ theme: "Christmas / Holiday"
 category: "Video Slot"
 
 # Demo
-demoUrl: "https://api.lightningcore.net/demo/launchGame?gamecode=xmasatw&moneymode=FUN&currency=PHP"
+demoUrl: "https://api.gametech99.com/visionlink/launchGame?gamecode=xmasatw&moneymode=FUN&currency=PHP"
 
 weightage: 2
 
