@@ -12,6 +12,7 @@ import Stats from "~/components/widgets/Stats.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
 import Button from "~/components/ui/Button.astro";
 import { sortGamesByWeightThenTitle } from "~/utils/sortGames";
+import { findImage } from "~/utils/images";
 
 const metadata = {
   title: "Play Beyond Games | Ready-Made HTML5 Casino Games for Operators",
@@ -29,6 +30,45 @@ const featuredGames = sortedGames.slice(0, 9).map((game) => ({
   callToAction: { href: `/games/${game.data.slug}` },
   isNew: game.data.new || false,
 }));
+
+// Build marquee images. Priority:
+// 1) `metadata.marquee` (array)
+// 2) `metadata.slide1..slideN` (slide1, slide2, ...)
+// 3) fallback to games collection
+let marqueeImages = [];
+if (Array.isArray(metadata?.marquee) && metadata.marquee.length > 0) {
+  marqueeImages = metadata.marquee.map((item) =>
+    typeof item === "string" ? { src: item, alt: "" } : item,
+  );
+} else {
+  // collect slide1..slideN from metadata if present
+  const slideKeys = Object.keys(metadata || {}).filter((k) =>
+    /^slide\d+$/.test(k),
+  );
+  if (slideKeys.length > 0) {
+    slideKeys.sort(
+      (a, b) => Number(a.replace("slide", "")) - Number(b.replace("slide", "")),
+    );
+    marqueeImages = slideKeys.map((k) => {
+      const v = metadata[k];
+      return typeof v === "string" ? { src: v, alt: "" } : v;
+    });
+  } else {
+    marqueeImages = sortedGames.map((game) => ({
+      src: game.data.marqueeImage ?? game.data.image,
+      alt: game.data.title,
+      href: `/games/${game.data.slug}`,
+    }));
+    // Filter out images that don't resolve to a local asset (avoid empty placeholders)
+    const resolved = await Promise.all(
+      marqueeImages.map(async (img) => {
+        const found = await findImage(img.src);
+        return found ? img : null;
+      }),
+    );
+    marqueeImages = resolved.filter(Boolean);
+  }
+}
 ---
 
 <Layout metadata={metadata}>
@@ -42,27 +82,7 @@ const featuredGames = sortedGames.slice(0, 9).map((game) => ({
         href: "/contact",
       },
     ]}
-    images={[
-      { src: "~/assets/images/marquee/slide-01.png", alt: "Color Game" },
-      { src: "~/assets/images/marquee/slide-02.png", alt: "Aswang Attack" },
-      { src: "~/assets/images/marquee/slide-03.png", alt: "Jeepney Scatter" },
-      { src: "~/assets/images/marquee/slide-04.png", alt: "Boracay Beautires" },
-      { src: "~/assets/images/marquee/slide-05.png", alt: "Dragon vs Phoenix" },
-      { src: "~/assets/images/marquee/slide-06.png", alt: "Fruit Fiesta" },
-      { src: "~/assets/images/marquee/slide-07.png", alt: "Goodluck Money" },
-      { src: "~/assets/images/marquee/slide-08.png", alt: "Pop Monster" },
-      { src: "~/assets/images/marquee/slide-09.png", alt: "Sari Sari Store" },
-      {
-        src: "~/assets/images/marquee/slide-10.png",
-        alt: "Yamashita Treasures",
-      },
-      {
-        src: "~/assets/images/marquee/slide-11.png",
-        alt: "Xmas Around the World",
-      },
-      { src: "~/assets/images/marquee/slide-12.png", alt: "Sweet Dash" },
-      { src: "~/assets/images/marquee/slide-13.png", alt: "War For Olympus" },
-    ]}
+    images={marqueeImages}
   >
     <Fragment slot="title">Go without limits.</Fragment>
 

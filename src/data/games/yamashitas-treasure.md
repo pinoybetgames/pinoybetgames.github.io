@@ -3,6 +3,7 @@ title: "Yamashita's Treasure"
 slug: "yamashitas-treasure"
 description: "Hunt for legendary war gold hidden deep in the Philippine jungle."
 image: "~/assets/images/games/yamashitas-treasure.jpg"
+marqueeImage: "~/assets/images/marquee/yamashita-treasure.png"
 
 # Game Specs
 rtp: "96.3%"

@@ -3,6 +3,7 @@ title: "Jeepney Scatter"
 slug: "jeepney-scatter"
 description: "Hop aboard the king of the road for a wild ride filled with scatter wins."
 image: "~/assets/images/games/jeepney-scatter.jpg"
+marqueeImage: "~/assets/images/marquee/jeepney-scatter.png"
 
 # Game Specs
 rtp: "96.7%"

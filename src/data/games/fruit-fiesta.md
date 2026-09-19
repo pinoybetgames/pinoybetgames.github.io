@@ -3,6 +3,7 @@ title: "Fruit Fiesta"
 slug: "fruit-fiesta"
 description: "Classic fruit symbols meet modern features in this vibrant and rewarding slot."
 image: "~/assets/images/games/fruit-fiesta.jpg"
+marqueeImage: "~/assets/images/marquee/fruit-fiesta.png"
 
 # Game Specs
 rtp: "96.0%"

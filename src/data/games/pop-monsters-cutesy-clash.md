@@ -3,6 +3,7 @@ title: "Pop Monsters: Cutesy Clash"
 slug: "pop-monsters-cutesy-clash"
 description: "Adorable monsters battle it out in this colorful, fast-paced slot."
 image: "~/assets/images/games/pop-monsters-cutesy-clash.jpg"
+marqueeImage: "~/assets/images/marquee/pop-monster.png"
 
 # Game Specs
 rtp: "96.4%"

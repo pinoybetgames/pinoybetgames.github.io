@@ -3,6 +3,7 @@ title: "Sari-Sari Store"
 slug: "sari-sari-store"
 description: "Stock the shelves and spin for prizes in this nostalgic neighborhood favorite."
 image: "~/assets/images/games/sari-sari-store.jpg"
+marqueeImage: "~/assets/images/marquee/sari-sari-store.png"
 
 # Game Specs
 rtp: "96.6%"

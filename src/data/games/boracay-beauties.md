@@ -3,6 +3,7 @@ title: "Boracay Beauties"
 slug: "boracay-beauties"
 description: "Soak up the sun and spin for paradise wins on the famous white sand beach."
 image: "~/assets/images/games/boracay-beauties.jpg"
+marqueeImage: "~/assets/images/marquee/boracay-beauties.png"
 
 # Game Specs
 rtp: "96.8%"

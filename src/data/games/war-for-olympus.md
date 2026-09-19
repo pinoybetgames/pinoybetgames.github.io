@@ -3,6 +3,7 @@ title: "War For Olympus"
 slug: "war-for-olympus"
 description: "The heavens are shaking and the throne is up for grabs!"
 image: "~/assets/images/games/war-for-olympus.jpg"
+marqueeImage: "~/assets/images/marquee/war-for-olympus.png"
 new: true
 
 # Game Specs

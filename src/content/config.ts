@@ -72,6 +72,7 @@ const gamesCollection = defineCollection({
     slug: z.string(),
     description: z.string(),
     image: z.string(),
+      marqueeImage: z.string().optional(),
     weightage: z.number(),
     new: z.boolean().optional(),
 

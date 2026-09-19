@@ -3,6 +3,7 @@ title: "Xmas Around the World"
 slug: "xmas-around-the-world"
 description: "Celebrate the holiday season with festive spins across global Christmas traditions."
 image: "~/assets/images/games/xmas-around-the-world.jpg"
+marqueeImage: "~/assets/images/marquee/xmas.png"
 
 # Game Specs
 rtp: "96.0%"

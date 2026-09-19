@@ -3,6 +3,7 @@ title: "Aswang Attack"
 slug: "aswang-attack"
 description: "Face the creatures of Philippine folklore in this thrilling supernatural slot."
 image: "~/assets/images/games/aswang-attack.jpg"
+marqueeImage: "~/assets/images/marquee/aswang-attack.png"
 
 # Game Specs
 rtp: "96.5%"

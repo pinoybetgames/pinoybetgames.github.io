@@ -3,6 +3,7 @@ title: "Dragon vs Phoenix"
 slug: "dragon-vs-phoenix"
 description: "Ancient rivals clash in this epic battle of fire and fortune."
 image: "~/assets/images/games/dragon-vs-phoenix.jpg"
+marqueeImage: "~/assets/images/marquee/dragon-vs-phoenix.png"
 
 # Game Specs
 rtp: "96.2%"

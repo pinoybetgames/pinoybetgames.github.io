@@ -3,6 +3,7 @@ title: "Pixie Magic: Color Game"
 slug: "color-game"
 description: "The classic Filipino carnival favorite, now with bigger prizes and more excitement."
 image: "~/assets/images/games/color-game.jpg"
+marqueeImage: "~/assets/images/marquee/color-game.png"
 
 # Game Specs
 rtp: "97.0%"

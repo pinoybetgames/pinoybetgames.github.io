@@ -3,6 +3,7 @@ title: "Goodluck Money"
 slug: "goodluck-money"
 description: "Chase prosperity and unlock lucky bonuses in this wealth-themed adventure."
 image: "~/assets/images/games/goodluck-money.jpg"
+marqueeImage: "~/assets/images/marquee/goodluck-money.png"
 
 # Game Specs
 rtp: "96.5%"

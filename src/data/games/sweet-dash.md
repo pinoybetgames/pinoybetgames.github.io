@@ -3,7 +3,8 @@ title: "Sweet Dash"
 slug: "sweet-dash"
 description: "Race through a neon candy circuit — fast spins, cascading wins and chain multipliers."
 image: "~/assets/images/games/sweet-dash.jpg"
-new: true
+marqueeImage: "~/assets/images/marquee/sweet-dash.png"
+new: false
 
 rtp: "96%"
 volatility: "High"
