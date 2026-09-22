@@ -4,7 +4,7 @@ slug: "war-for-olympus"
 description: "The heavens are shaking and the throne is up for grabs!"
 image: "~/assets/images/games/war-for-olympus.jpg"
 marqueeImage: "~/assets/images/marquee/war-for-olympus.png"
-new: true
+new: false
 
 # Game Specs
 rtp: "96.46%"
