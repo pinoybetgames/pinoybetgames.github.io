@@ -14,7 +14,7 @@ import type { MetaData } from '~/types';
 export const prerender = true;
 
 export const getStaticPaths = (async () => {
-  const games = await getCollection('games');
+  const games = await getCollection('games', ({ data }) => !data.draft);
   return games.map((game) => ({
     params: { slug: game.data.slug },
     props: { game },
@@ -27,6 +27,9 @@ const { game } = Astro.props as Props;
 const { Content } = await render(game);
 
 const image = (await findImage(game.data.image)) as ImageMetadata | string | undefined;
+const features = (game.data.features ?? []).map((feature) =>
+  typeof feature === 'string' ? { title: feature, description: '' } : feature
+);
 
 const metadata = {
   title: game.data.title,
@@ -123,16 +126,19 @@ const specs = [
 
   <!-- Features Section -->
   {
-    game.data.features && game.data.features.length > 0 && (
+    features.length > 0 && (
       <section class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-          <h2 class="text-2xl font-bold dark:text-white mb-8 text-center">Key Features</h2>
+          <h2 class="text-2xl font-bold dark:text-white mb-8 text-center">{game.data.featuresHeader || 'Key Features'}</h2>
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {game.data.features.map((feature) => (
-              <div class="flex items-center gap-3 bg-white dark:bg-slate-900 rounded-lg p-4 shadow-md">
-                <Icon name="tabler:check" class="w-6 h-6 text-green-500 flex-shrink-0" />
-                <span class="dark:text-white">{feature}</span>
-              </div>
+            {features.map((feature) => (
+              <article class="bg-white dark:bg-slate-900 rounded-lg p-5 shadow-md">
+                <div class="flex items-start gap-3">
+                  <Icon name="tabler:check" class="w-6 h-6 text-green-500 flex-shrink-0" />
+                  <h3 class="text-lg font-semibold dark:text-white">{feature.title}</h3>
+                </div>
+                {feature.description && <p class="mt-3 text-muted dark:text-slate-400">{feature.description}</p>}
+              </article>
             ))}
           </div>
         </div>
