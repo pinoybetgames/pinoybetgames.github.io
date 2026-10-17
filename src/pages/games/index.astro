@@ -13,7 +13,7 @@ const metadata = {
     "Explore our portfolio of ready-made HTML5 casino games built for operators, platforms, and aggregators.",
 };
 
-const games = await getCollection("games");
+const games = await getCollection("games", ({ data }) => !data.draft && !data.unlisted);
 // Sort games by weightage (desc), then title (asc)
 const sortedGames = sortGamesByWeightThenTitle(games);
 
