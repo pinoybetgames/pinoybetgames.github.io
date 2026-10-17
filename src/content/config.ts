@@ -75,6 +75,8 @@ const gamesCollection = defineCollection({
       marqueeImage: z.string().optional(),
     weightage: z.number(),
     new: z.boolean().optional(),
+    draft: z.boolean().optional(),
+    unlisted: z.boolean().optional(),
 
     // Game specs
     rtp: z.string(),
@@ -89,8 +91,9 @@ const gamesCollection = defineCollection({
     // Demo
     demoUrl: z.string().optional(),
 
-    // Features
-    features: z.array(z.string()).optional(),
+    // Features (legacy strings remain supported while Bunny entries include descriptions)
+    featuresHeader: z.string().optional(),
+    features: z.array(z.union([z.string(), z.object({ title: z.string(), description: z.string() })])).optional(),
 
     // Screenshots for gallery
     screenshots: z.array(z.string()).optional(),
